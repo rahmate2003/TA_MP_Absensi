@@ -6,7 +6,7 @@ Aplikasi Absensi adalah aplikasi berbasis GUI yang dibuat menggunakan NetBeans v
 
 - Manajemen pengguna (admin dan pengguna biasa)
 - Pencatatan absensi harian
-- Laporan absensi mahasiswa
+- Laporan absensi pegawai
 
 ## Persyaratan
 
