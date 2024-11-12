@@ -33,7 +33,7 @@ public class Absensi extends javax.swing.JFrame {
         initComponents();
          setLocationRelativeTo(null);
 
-       jLabel6.setText( "<html>Informasi Profil, Email, Nama <br> dan Nomor Induk Mahasiswa (NIM)</html>");
+       jLabel6.setText( "<html>Informasi Profil, Email, Nama <br> dan Nomor Induk Kependudukan (NIK)</html>");
         jLabel6.setMaximumSize(new Dimension(40, Integer.MAX_VALUE));
          Color warna = new Color (244,244,244);
     getContentPane().setBackground(warna);
@@ -43,12 +43,12 @@ public class Absensi extends javax.swing.JFrame {
 
 
 
-public Absensi(String nim, String nama, String username, String jurusan,String telp, String kelamin, String prodi) {
+public Absensi(String nik, String nama, String username, String jabatan,String telp, String kelamin, String divisi) {
     
         initComponents();
    
         setLocationRelativeTo(null);
-             jLabel6.setText( "<html>Informasi Profil, Email, Nama <br> dan Nomor Induk Mahasiswa (NIM)</html>");
+             jLabel6.setText( "<html>Informasi Profil, Email, Nama <br> dan Nomor Induk Kependudukan (NIK)</html>");
                
              jLabel6.setMaximumSize(new Dimension(40, Integer.MAX_VALUE));
             Color warna = new Color (244,244,244);
@@ -59,12 +59,12 @@ public Absensi(String nim, String nama, String username, String jurusan,String t
 //this.jTable1.getTableHeader().setForeground(Color.yellow);
 
       lblNama.setText(nama);
-      lblNIM.setText(nim);
+      lblNIM.setText(nik);
       lblUsernameprofil.setText(username);
       lblNama2.setText(nama);
-      lblJurusan.setText(jurusan);
+      lblJurusan.setText(jabatan);
       lblKelamin.setText(kelamin);
-      lblProdi.setText(prodi);
+      lblProdi.setText(divisi);
       lblTelp.setText(telp);
                 
         //Menampilkan Jam
@@ -251,7 +251,7 @@ public Absensi(String nim, String nama, String username, String jurusan,String t
 
         jLabel2.setFont(new java.awt.Font("Montserrat Black", 0, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("ABSENSI MAHASISWA");
+        jLabel2.setText("ABSENSI PEGAWAI");
 
         jSeparator1.setBackground(new java.awt.Color(191, 191, 191));
 
@@ -550,7 +550,7 @@ public Absensi(String nim, String nama, String username, String jurusan,String t
         jLabel6.setFont(new java.awt.Font("Montserrat Medium", 0, 12)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(106, 106, 106));
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel6.setText("Informasi Profil, Email, Nama dan Nomor Induk Mahasiswa(NIM)");
+        jLabel6.setText("Informasi Profil, Email, Nama dan Nomor Induk Kependudukan (NIK)");
         jLabel6.setToolTipText("");
         jLabel6.setVerticalAlignment(javax.swing.SwingConstants.TOP);
         jLabel6.setPreferredSize(new java.awt.Dimension(100, 15));
@@ -599,7 +599,7 @@ public Absensi(String nim, String nama, String username, String jurusan,String t
 
         jLabel12.setFont(new java.awt.Font("Montserrat Medium", 0, 16)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(17, 65, 139));
-        jLabel12.setText("JURUSAN");
+        jLabel12.setText("JABATAN");
         pnlProfil.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 280, -1, -1));
 
         jLabel13.setFont(new java.awt.Font("Montserrat Medium", 0, 16)); // NOI18N
@@ -614,7 +614,7 @@ public Absensi(String nim, String nama, String username, String jurusan,String t
 
         jLabel10.setFont(new java.awt.Font("Montserrat Medium", 0, 16)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(17, 65, 139));
-        jLabel10.setText("Prodi");
+        jLabel10.setText("DIVISI");
         pnlProfil.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 360, -1, -1));
 
         jLabel9.setFont(new java.awt.Font("Montserrat Medium", 0, 16)); // NOI18N
@@ -624,7 +624,7 @@ public Absensi(String nim, String nama, String username, String jurusan,String t
 
         jLabel8.setFont(new java.awt.Font("Montserrat Medium", 0, 16)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(17, 65, 139));
-        jLabel8.setText("NIM");
+        jLabel8.setText("NIK");
         pnlProfil.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 20, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Montserrat SemiBold", 0, 18)); // NOI18N
@@ -982,14 +982,14 @@ public Absensi(String nim, String nama, String username, String jurusan,String t
 private void getData() {
 try {
      
-   String nim = lblNIM.getText();
+   String nik = lblNIM.getText();
    java.sql.Connection conn = (java.sql.Connection) Koneksi.getKoneksi();
    java.sql.Statement stm = conn.createStatement();
   String query = "SELECT CAST(@no:=@no+1 AS UNSIGNED) AS NO, " 
              + "DATE_FORMAT(tanggal, '%W, %d %M %Y') AS 'TANGGAL', " 
              + "MIN(CASE WHEN keterangan = 'Absen Masuk' AND TIME(waktu) BETWEEN '07:00' AND '09:00' THEN waktu END) AS 'JAM MASUK', "
              + "MAX(CASE WHEN keterangan = 'Absen Pulang' AND TIME(waktu) BETWEEN '16:00' AND '18:00' THEN waktu END) AS 'JAM PULANG' "
-             + "FROM absensi, (SELECT @no:=0) r WHERE nim ='" + nim + "' "
+             + "FROM absensi, (SELECT @no:=0) r WHERE nik ='" + nik + "' "
              + "GROUP BY tanggal";
 
    java.sql.ResultSet sql = stm.executeQuery(query);
@@ -1184,7 +1184,7 @@ System.out.println("Gagal");
         //  TODO add your handling code here:
        
     try {
-        String sql = "SELECT COUNT(*) FROM absensi INNER JOIN jam ON TIME(waktu) BETWEEN jam.start AND jam.finish WHERE nim = ? AND tanggal = ? AND jam.id_jam = 0";
+        String sql = "SELECT COUNT(*) FROM absensi INNER JOIN jam ON TIME(waktu) BETWEEN jam.start AND jam.finish WHERE nik = ? AND tanggal = ? AND jam.id_jam = 0";
         java.sql.Connection con = (java.sql.Connection) Koneksi.getKoneksi();
         java.sql.PreparedStatement stmnt = con.prepareStatement(sql);
         stmnt.setString(1, lblNIM.getText());
@@ -1196,7 +1196,7 @@ System.out.println("Gagal");
           
             JOptionPane.showMessageDialog(null, "Anda sudah melakukan absen masuk sebelumnya atau dilakukan di luar jam absen", "Error", JOptionPane.ERROR_MESSAGE);
         } else {
-            sql = "INSERT INTO absensi (nim, nama, tanggal, waktu, keterangan) " +
+            sql = "INSERT INTO absensi (nik, nama, tanggal, waktu, keterangan) " +
                   "VALUES (?, ?, ?, ?, ?)";
             stmnt = con.prepareStatement(sql);
             stmnt.setString(1, lblNIM.getText());
@@ -1222,7 +1222,7 @@ System.out.println("Gagal");
     private void btnPulangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPulangActionPerformed
         // TODO add your handling code here:
        try {
-        String sql = "SELECT COUNT(*) FROM absensi INNER JOIN jam ON TIME(waktu) BETWEEN jam.start AND jam.finish WHERE nim = ? AND tanggal = ? AND jam.id_jam = 1";
+        String sql = "SELECT COUNT(*) FROM absensi INNER JOIN jam ON TIME(waktu) BETWEEN jam.start AND jam.finish WHERE nik = ? AND tanggal = ? AND jam.id_jam = 1";
         java.sql.Connection con = (java.sql.Connection) Koneksi.getKoneksi();
         java.sql.PreparedStatement stmnt = con.prepareStatement(sql);
         stmnt.setString(1, lblNIM.getText());
@@ -1234,7 +1234,7 @@ System.out.println("Gagal");
           
             JOptionPane.showMessageDialog(null, "Anda sudah melakukan absen Pulang sebelumnya atau dilakukan di luar jam absen", "Error", JOptionPane.ERROR_MESSAGE);
         } else {
-            sql = "INSERT INTO absensi (nim, nama, tanggal, waktu, keterangan) " +
+            sql = "INSERT INTO absensi (nik, nama, tanggal, waktu, keterangan) " +
                   "VALUES (?, ?, ?, ?, ?)";
             stmnt = con.prepareStatement(sql);
             stmnt.setString(1, lblNIM.getText());

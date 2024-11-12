@@ -200,7 +200,7 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="ABSENSI MAHASISWA"/>
+                <Property name="text" type="java.lang.String" value="ABSENSI PEGAWAI"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JSeparator" name="jSeparator1">
@@ -554,7 +554,7 @@
                   <Color blue="6a" green="6a" red="6a" type="rgb"/>
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="2"/>
-                <Property name="text" type="java.lang.String" value="Informasi Profil, Email, Nama dan Nomor Induk Mahasiswa(NIM)"/>
+                <Property name="text" type="java.lang.String" value="Informasi Profil, Email, Nama dan Nomor Induk Kependudukan (NIK)"/>
                 <Property name="toolTipText" type="java.lang.String" value=""/>
                 <Property name="verticalAlignment" type="int" value="1"/>
                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
@@ -707,7 +707,7 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="8b" green="41" red="11" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="JURUSAN"/>
+                <Property name="text" type="java.lang.String" value="JABATAN"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -755,7 +755,7 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="8b" green="41" red="11" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Prodi"/>
+                <Property name="text" type="java.lang.String" value="DIVISI"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -787,7 +787,7 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="8b" green="41" red="11" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="NIM"/>
+                <Property name="text" type="java.lang.String" value="NIK"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">

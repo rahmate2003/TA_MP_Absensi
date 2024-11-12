@@ -41,6 +41,7 @@ public class Login extends javax.swing.JFrame {
             }
         }
     });
+    
     }
 
     /**
@@ -166,16 +167,16 @@ public class Login extends javax.swing.JFrame {
     ResultSet rs = s.executeQuery(sql);
 
     if (rs.next()){
-        String nim = rs.getString("nim"); 
+        String nik = rs.getString("nik"); 
         String nama = rs.getString("nama"); // ambil kolom nama dari tabel users
         String username = rs.getString("username");
-        String jurusan = rs.getString("jurusan");
+        String jabatan = rs.getString("jabatan");
         String kelamin = rs.getString("kelamin");
-        String prodi = rs.getString("prodi");
+        String divisi = rs.getString("divisi");
         String telp = rs.getString("telp");
  
         this.dispose();
-        Absensi a = new Absensi(nim,nama,username,jurusan,telp,kelamin,prodi);
+        Absensi a = new Absensi(nik,nama,username,jabatan,telp,kelamin,divisi);
         a.setVisible(true);
  
               
