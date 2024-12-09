@@ -11,7 +11,7 @@ Aplikasi Absensi adalah aplikasi berbasis GUI yang dibuat menggunakan NetBeans v
 ## Persyaratan
 
 - NetBeans IDE 8.2
-- JDK 8 atau versi terbaru
+- JDK 8 
 - MySQL Server
 
 ## Instalasi
